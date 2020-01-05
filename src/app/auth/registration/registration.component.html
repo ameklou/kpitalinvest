@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <!-- Material form register -->
+
+
+  <!--Card content-->
+
+  <div class="col-lg-8 offset-2">
+
+    <!-- Form -->
+    <form class="text-center border border-light p-5 mt-4" [formGroup]="registrationForm" >
+
+      <div class="form-row">
+        <div class="col">
+          <input type="text" id="name" formControlName="name" placeholder="Nom complet" class="form-control mt-4" mdbInput>
+        </div>
+        <div class="col">
+          <input type="email" formControlName="email" id="email" placeholder="Email" class="form-control mt-4" mdbInput>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <input type="password" id="password" formControlName="password" placeholder="Mot de passe" class="form-control mt-4" mdbInput>
+        </div>
+        <div class="col">
+          <input type="phone" formControlName="phone" id="phone" placeholder="Telephone" class="form-control mt-4" mdbInput>
+        </div>
+      </div>
+      <div class="form-row mt-4">
+        <div class="col">
+          <select formControlName="country" class="browser-default custom-select mb-4">
+            <option value="" disabled>Choisir une option</option>
+            <option value="Benin" selected>Benin</option>
+            <option value="Burkina">Burkina-Fase</option>
+            <option value="Togo">Togo</option>
+          </select>
+        </div>
+        <div class="col">
+          <select formControlName="role" class="browser-default custom-select mb-4">
+            <option value="" disabled>Choisir une option</option>
+            <option value="Entrepreneur" selected>Entrepreneur</option>
+            <option value="Investor">Investiteur</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row mt-4">
+        <textarea formControlName="bio" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Biographie"></textarea>
+      </div>
+
+
+
+
+
+      <!-- Sign up button -->
+      <button mdbBtn  (click)="registration()" color="info" outline="true" rounded="true"  class="my-4 waves-effect z-depth-0" mdbWavesEffect
+              type="submit">creer un compte</button>
+
+
+
+      <!-- Terms of service -->
+      <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a>. </p>
+
+    </form>
+    <!-- Form -->
+
+
+  </div>
+
+
+  <!-- Material form register -->
+</div>

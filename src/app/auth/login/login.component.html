@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <!-- Default form register -->
+  <div class="col-md-8 offset-2">
+    <form class="text-center border border-light p-5 mt-4" [formGroup]="loginForm">
+
+      <p class="h4 mb-4 ">Connexion</p>
+
+      <div class="form-row mb-4">
+
+
+
+
+        <!-- E-mail -->
+        <input type="email" formControlName="email" class="form-control mb-4" placeholder="E-mail" mdbInput>
+
+        <!-- Password -->
+        <input type="password" formControlName="password" mdbInput class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+
+
+
+        <!-- Sign up button -->
+        <div class="col-md-4 offset-3">
+          <button mdbBtn color="info" (click)="login()" block="true" class="my-4" type="submit">Sign in</button>
+        </div>
+
+
+
+        <!-- Terms of service -->
+        <p>By clicking
+          <em>Sign up</em> you agree to our
+          <a href="" target="_blank">terms of service</a></p>
+      </div>
+    </form>
+
+  </div>
+  <!-- Default form register -->
+</div>

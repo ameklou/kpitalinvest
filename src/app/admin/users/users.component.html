@@ -1,0 +1,54 @@
+<mdb-breadcrumb>
+  <mdb-breadcrumb-item class="blue-text">Administration</mdb-breadcrumb-item>
+  <mdb-breadcrumb-item class="active">Liste des utilisateurs</mdb-breadcrumb-item>
+
+</mdb-breadcrumb>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 col-lg-6 offset-3 mx-auto">
+      <div class="md-form">
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          class="form-control"
+          id="search"
+          mdbInput
+        />
+        <label for="search">Search</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table mdbTable class="table table-bordered">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th>Action</th>
+          <th>Visualiser</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users |async ; let i =index">
+          <th scope="row">{{i+1}}</th>
+          <th>{{user.name}}</th>
+          <th>{{user.role}}</th>
+          <th *ngIf="user.verified">Valider</th>
+          <th *ngIf="!user.verified">En attente de validation</th>
+          <th>{{user.created_at | date}}</th>
+          <th><button *ngIf="!user.verified" (click)="validate(user.id)" type="button" mdbBtn color="success" mdbWavesEffect>Valider</button><button *ngIf="user.verified" (click)="desactivate(user.id)" type="button" mdbBtn color="danger" mdbWavesEffect>Desactiver</button></th>
+          <th><button  type="button" mdbBtn color="primary" mdbWavesEffect>Visualiser</button> </th>
+
+
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
