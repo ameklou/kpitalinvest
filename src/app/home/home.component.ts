@@ -1,14 +1,14 @@
-import {Component, HostListener, ViewChild} from '@angular/core';
+import {Component, HostListener, ViewChild,OnInit} from '@angular/core';
  import {MdbTableDirective} from "ng-uikit-pro-standard";
  @Component(
    { selector:'home',
    templateUrl: './home.component.html',
    styleUrls:['./home.component.scss']
  })
- export class HomeComponent {
-@ViewChild(MdbTableDirective, { static: true })
- mdbTable:MdbTableDirective;
+ export class HomeComponent implements OnInit{
+@ViewChild(MdbTableDirective, { static: true }) mdbTable:MdbTableDirective;
  elements: any = [];
+
  headElements = ['ID', 'First','Last', 'Handle'];
  searchText: string = '';
   previous: string;
@@ -17,12 +17,19 @@ constructor() { }
 oninput() {
   this.searchItems();
 }
-ngOnInit() { for (let i = 1; i <= 10; i++) { this.elements.push({ id:
-i.toString(), first: 'Wpis ' + i, last: 'Last ' + i, handle: 'Handle ' +
-i }); }
+ngOnInit() {
+  for (let i = 1; i <= 10; i++) {
+    this.elements.push({
+      id: i.toString(), first: 'Wpis ' + i, last: 'Last ' + i, handle: 'Handle ' + i
+    }
+      );
+  }
+
 this.mdbTable.setDataSource(this.elements);
 this.previous =this.mdbTable.getDataSource();
  }
+
+
  searchItems() {
     const prev =this.mdbTable.getDataSource();
     if (!this.searchText) {

@@ -12,7 +12,8 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'registration',component:RegistrationComponent},
   {path:'unconfirmated', component:UnconfirmatedComponent},
-  {path:'admin',loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)}
+  {path:'admin',loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)},
+  {path:'entrepreneur',loadChildren:()=>import('./entrepreneur/entrepreneur.module').then(m=>m.EntrepreneurModule)}
 ];
 
 @NgModule({

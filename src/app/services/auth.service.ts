@@ -3,19 +3,48 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {User} from '../models/user';
 import {Router} from '@angular/router';
+import {UsersService} from './users.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private firebaseAuth:AngularFireAuth, private firestore:AngularFirestore, private ngZone:NgZone, private route:Router) { }
+  userData:any;
+
+  constructor(private firebaseAuth:AngularFireAuth,
+              private firestore:AngularFirestore,
+              private ngZone:NgZone,
+              private route:Router,
+              private userService:UsersService) {
+    this.firebaseAuth.authState.subscribe(
+      user=>{
+        if(user){
+
+          this.userService.getUserById(user.uid).forEach(
+            datas=>{
+              datas.forEach(
+                value=>{
+                  this.userData=value.data();
+                  //console.log(this.userData);
+                  localStorage.setItem('userData',JSON.stringify(this.userData));
+                }
+              )
+            }
+          );
+
+        }else{
+          localStorage.setItem('userData',null);
+        }
+      }
+    )
+  }
 
 
   login(data){
     this.firebaseAuth.auth.signInWithEmailAndPassword(data.email,data.password).then(
       (result)=>{
-        console.log(result)
+        this.route.navigate(['entrepreneur'])
       }
     )
   }
@@ -63,4 +92,14 @@ export class AuthService {
         }
       )
   }
+
+  signOut() {
+    return this.firebaseAuth.auth.signOut().then(() => {
+      localStorage.removeItem('userDate');
+      localStorage.removeItem('user');
+
+      this.route.navigate(['login']);
+    })
+  }
+
 }

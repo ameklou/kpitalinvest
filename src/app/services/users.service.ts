@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {User} from '../models/user';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
@@ -16,8 +17,13 @@ export class UsersService {
 
   getUsers(){
     this.userCollection=this.firestore.collection<any>('Users');
-    return this.userCollection.snapshotChanges();
+    return this.userCollection.valueChanges();
 
+
+  }
+  getUserById(id:string){
+    this.userCollection=this.firestore.collection<any>('Users');
+    return this.firestore.collection<any>('Users',ref=>ref.where('uid','==',id)).get();
 
   }
 
