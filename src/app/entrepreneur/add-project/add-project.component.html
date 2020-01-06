@@ -1,1 +1,29 @@
-<p>add-project works!</p>
+<div class="row">
+  <div class="col">
+    <form [formGroup]="addprojectForm" class="text-center border border-light p-5">
+      <p class="h4 mb-4">Ajouter un nouveau projet</p>
+      <input type="text" formControlName="title" mdbInput placeholder="Nom du projet" class="form-control mb-4">
+      <select formControlName="category" class="browser-default custom-select mb-4">
+        <option selected>Categorie</option>
+        <option [ngValue]="category.name" *ngFor="let category of categories| async">{{category.name}}</option>
+
+      </select>
+      <select formControlName="step" class="browser-default custom-select mb-4">
+        <option selected>Etape du projet</option>
+        <option [ngValue]="step.name" *ngFor="let step of steps| async">{{step.name}}</option>
+
+      </select>
+      <input formControlName="capitale" type="text" mdbInput placeholder="Capitale" class="form-control mb-4">
+      <textarea maxlength="200" formControlName="summary" type="text" id="form7" placeholder="Description sommaire du projet maximum 200 carateres" class="md-textarea md-textarea-auto form-control"
+                mdbInput></textarea>
+
+      <textarea  formControlName="description" type="text" placeholder="Description complete du projet" class="md-textarea md-textarea-auto form-control mt-4"
+                mdbInput></textarea>
+      <div class="mt-4">
+        <button type="submit" (click)="addproject()" class="btn btn-success">
+          Enregistrer
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

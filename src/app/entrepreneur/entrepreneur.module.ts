@@ -5,10 +5,11 @@ import { EntrepreneurRoutingModule } from './entrepreneur-routing.module';
 import { EntrepreneurComponent } from './entrepreneur.component';
 import { BoardComponent } from './board/board.component';
 import { NavComponent } from './nav/nav.component';
-import {DropdownModule, IconsModule, NavbarModule, WavesModule} from 'ng-uikit-pro-standard';
+import {DropdownModule, IconsModule, InputsModule, NavbarModule, WavesModule} from 'ng-uikit-pro-standard';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectComponent } from './project/project.component';
 import { AddprojectComponent } from './addproject/addproject.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,10 @@ import { AddprojectComponent } from './addproject/addproject.component';
     NavbarModule,
     IconsModule,
     DropdownModule,
-    WavesModule
+    WavesModule,
+    InputsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class EntrepreneurModule { }

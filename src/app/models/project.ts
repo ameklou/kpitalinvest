@@ -8,6 +8,9 @@ export class Project{
   step:Step;
   category:Category;
   capital:string;
+  summary:string;
+  validated:boolean;
+  created_at:string;
 }
 
 export class Category{

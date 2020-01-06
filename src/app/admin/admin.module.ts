@@ -16,23 +16,26 @@ import {
   WavesModule
 } from 'ng-uikit-pro-standard';
 import { UsersComponent } from './users/users.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 
 @NgModule({
-  declarations: [AdminComponent, AdminboardComponent, NavComponent, UsersComponent],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    IconsModule,
-    DropdownModule,
-    WavesModule,
-    NavbarModule,
-    ButtonsModule,
-    InputsModule,
-    BreadcrumbModule,
-    FormsModule,
-    TableModule
-  ]
+  declarations: [AdminComponent, AdminboardComponent, NavComponent, UsersComponent, ProjectListComponent, ProjectDetailComponent],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        IconsModule,
+        DropdownModule,
+        WavesModule,
+        NavbarModule,
+        ButtonsModule,
+        InputsModule,
+        BreadcrumbModule,
+        FormsModule,
+        TableModule,
+        ReactiveFormsModule
+    ]
 })
 export class AdminModule { }

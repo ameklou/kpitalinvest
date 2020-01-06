@@ -1,0 +1,108 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+
+    <div class="col-lg-3 col-md-3 ">
+
+        <h4 class="text-center mt-1">Liste des categories</h4>
+        <form [formGroup]="categoriyForm" class="text-center  mt-4 mb-4">
+          <input type="text" formControlName="name" placeholder="Nom de la categorie" mdbInput class="form-control mb-4">
+          <button type="submit" (click)="addCategory()" class="btn btn-primary">Ajouter une categorie</button>
+        </form>
+        <div class="row mt-4">
+          <div class="col">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let category of categories| async">
+                {{category.name}}
+
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="col-lg-6 col-md-6  border-right border-left">
+
+      <!-- Projects section v.3 -->
+      <section class="my-5"  >
+
+
+        <!-- Grid row -->
+        <ul *ngFor="let project of projects| async">
+          <li>
+            <div class="row">
+
+              <!-- Grid column -->
+              <div class="col-lg-5 mb-lg-0 mb-5">
+                <!--Image-->
+                <img src="{{project.logo}}" alt="Sample project image" class="img-fluid rounded z-depth-1">
+              </div>
+              <!-- Grid column -->
+
+              <!-- Grid column -->
+              <div class="col-lg-7">
+
+                <!-- Grid row -->
+                <div class="row mb-3">
+                  <div class="col-md-1 col-2">
+                    <mdb-icon fas icon="book" size="2x" class="cyan-text"></mdb-icon>
+                  </div>
+                  <div class="col-md-11 col-10">
+                    <h5 class="font-weight-bold mb-3">{{project.title}}</h5>
+                    <p class="grey-text">{{project.summary}}</p>
+                  </div>
+                </div>
+                <!-- Grid row -->
+
+                <!-- Grid row -->
+                <div class="row mb-3">
+                  <div class="col-md-11 col-10">
+                    <h5 class="font-weight-bold mb-3">{{project.category}}</h5>
+                    <a routerLink="/admin/project-detail/{{project.id}}" class="btn btn-primary">Visualiser</a>
+
+                  </div>
+                </div>
+                <!-- Grid row -->
+
+
+              </div>
+              <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+            <hr class="my-5">
+          </li>
+        </ul>
+
+      </section>
+      <!-- Projects section v.3 -->
+
+
+    </div>
+    <div class="col-lg-3 col-md-3 ">
+      <h4 class="text-center mt-1">Liste des categories</h4>
+      <form [formGroup]="stepForm" class="text-center  mt-4 mb-4">
+        <input type="text" formControlName="name" placeholder="Nom de l'etape" mdbInput class="form-control mb-4">
+        <textarea mdbInput formControlName="description" placeholder="description de l'etape" class="form-control mb-4" ></textarea>
+        <button type="submit" (click)="addStep()" class="btn btn-primary">Ajouter une categorie</button>
+      </form>
+      <div class="row mt-4 mb-4">
+        <div class="col">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let step of steps| async">
+              {{step.name}}
+
+            </li>
+          </ul>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

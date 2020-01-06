@@ -27,6 +27,7 @@
           <th>Nom</th>
           <th>Type</th>
           <th>Status</th>
+          <th>Email</th>
           <th>Date</th>
           <th>Action</th>
           <th>Visualiser</th>
@@ -39,6 +40,7 @@
           <th>{{user.role}}</th>
           <th *ngIf="user.verified">Valider</th>
           <th *ngIf="!user.verified">En attente de validation</th>
+          <th>{{user.email}}</th>
           <th>{{user.created_at | date}}</th>
           <th><button *ngIf="!user.verified" (click)="validate(user.id)" type="button" mdbBtn color="success" mdbWavesEffect>Valider</button><button *ngIf="user.verified" (click)="desactivate(user.id)" type="button" mdbBtn color="danger" mdbWavesEffect>Desactiver</button></th>
           <th><button  type="button" mdbBtn color="primary" mdbWavesEffect>Visualiser</button> </th>

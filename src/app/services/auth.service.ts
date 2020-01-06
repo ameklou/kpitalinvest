@@ -69,6 +69,7 @@ export class AuthService {
             'idCard':'',
             'phone':data.phone,
             'bio':data.bio,
+            'email':data.email,
             'created_at':this.getDateTimeNow()
 
           };

@@ -21,7 +21,7 @@
           <!-- Quotation -->
           <p><i class="fas fa-quote-left"></i> {{userData.bio}}</p>
           <div class="center-align">
-            <a routerLink="add-project" class="btn btn-primary">Ajouter un projet</a>
+            <a routerLink="add-project" *ngIf="userData.verified" class="btn btn-primary">Ajouter un projet</a>
           </div>
         </div>
 

@@ -35,25 +35,25 @@ export class UsersComponent implements OnInit {
     // }
 
 
-    this.users=this.userService.getUsers();
-    // this.users= this.userService.getUsers().pipe(
-    //   map(
-    //     changes=>changes.map(
-    //       ({payload:{doc}})=>{
-    //         const data = doc.data();
-    //         const id=doc.id;
-    //         return {id,...data}
-    //       }
-    //     )
-    //   )
-    // );
+    //this.users=this.userService.getUsers();
+    this.users= this.userService.getUsers().pipe(
+      map(
+        changes=>changes.map(
+          ({payload:{doc}})=>{
+            const data = doc.data();
+            const id=doc.id;
+            return {id,...data}
+          }
+        )
+      )
+    );
 
     this.mdbTable.setDataSource(this.users);
     this.previous =this.mdbTable.getDataSource();
   }
 
   validate(data){
-
+    console.log(data);
     this.userService.validateUser(data)
   }
 

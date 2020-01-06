@@ -17,7 +17,7 @@ export class UsersService {
 
   getUsers(){
     this.userCollection=this.firestore.collection<any>('Users');
-    return this.userCollection.valueChanges();
+    return this.userCollection.snapshotChanges();
 
 
   }
